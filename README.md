@@ -15,9 +15,7 @@ The project currently executes terminal or console emulators.
 Most modern terminals support ANSI escape codes, but there might be some variations in support depending on the terminal software.
 GUI game is in work. This line of code may cause some problem in old console software.
 
-<code>
-std::cout << "\033[1;3" << WHITE << ";4" << BLACK << 'm';
-</code>
+<code> std::cout << "\033[1;3" << WHITE << ";4" << BLACK << 'm'; </code>
 
 ## Features
 
@@ -42,14 +40,9 @@ Follow these steps to build and run the Tic-Tac-Toe project on different platfor
 
 ### Windows (Visual Studio)
 
-1. Open a command prompt or PowerShell.
-2. Navigate to the project root directory.
-3. Create a build directory: `mkdir build`
-4. Move into the build directory: `cd build`
-5. Generate Visual Studio project files using CMake: `cmake ..`
-6. Open the generated `.sln` file in Visual Studio.
-7. Build the project within Visual Studio.
-8. Run the compiled executable from the build output directory.
+1. Open the project in Visual Studio
+1. Configure the Build Configuration
+1. Build and Run the executable
 
 ### Windows (MinGW)
 

@@ -92,4 +92,4 @@ namespace tictactoe
     }
 }
 
-#endif LOGIC_H__
+#endif // LOGIC_H__

@@ -24,7 +24,7 @@ namespace tictactoe
 			{
 				if (m_board.check() != EMPTY_SPACE)
 				{
-					m_priority = ((turn == COMPUTER) ? -1 : 1) * std::pow(depth, POWER);
+					m_priority = int(((turn == COMPUTER) ? -1 : 1) * std::pow(depth, POWER));
 					return m_priority;
 				}
 				if (depth == 0 || !m_board.has_empty())

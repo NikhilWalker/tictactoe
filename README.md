@@ -4,6 +4,7 @@ Tic-Tac-Toe is a classic two-player game implemented in C++ and played in the co
 
 ## platform
 Currently build upon msvc2022 in x64 platform and msvc compiler.
+Working on compatibility.
 
 ## Features
 

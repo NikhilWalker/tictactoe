@@ -2,6 +2,7 @@
 #define GUI_H__ 1
 
 #include <iostream>
+#include <conio.h>
 #include "header_files.h"
 #include "board.h"
 
@@ -28,41 +29,77 @@ namespace tictactoe
 {
 	namespace GUI
 	{
-		int get_move(board b)
+        std::string player_1("Player 1");
+        std::string player_2("Player 2");
+
+		int get_move(board b, MARK mode, int turn)
 		{
+            if (mode == COMPUTER)
+                std::cout << "Your move : ";
+            else if (turn == 0)
+                std::cout << player_1 << "'s move : ";
+            else
+                std::cout << player_2 << "'s move : ";
+
 			int move;
-			std::cin >> move;
-			while (move < 1 || move > 9 || b[move - 1] != EMPTY_SPACE)
-				std::cin >> move;
-			return move - 1;
+            while (1)
+            {
+                do
+                {
+                    move = getche();
+                    //see if valid
+                    if (move <= '9' && move >= '1')
+                    {
+                        move = move - '1';
+                        break;
+                    }
+                    else if (move == 'e')
+                    {
+                        std::cout << "Bye";
+                        exit(0);
+                    }
+                } while (1);
+                if (b[move] == EMPTY_SPACE)
+                    break;
+            }
+			return move;
 		}
         bool outro(MARK mark, MARK mode)
         {
-            char temp;
-            switch (mark)
+
+            if(mode == COMPUTER)
             {
-            case tictactoe::PLAYER_1:
-                if (mode == PLAYER_2)
-                    std::cout << "\nPlayer 1 wins\n";
+                if(mark == COMPUTER)
+                {
+                    COLOR(MAGENTA, BLACK);
+                    std::cout << "\nyou lose\n";
+                    RESET();
+                }
                 else
-                    std::cout << "\ncongrats you win!!!!!!!!!\n";
-                break;
-            case tictactoe::PLAYER_2:
-                std::cout << "\nPlayer 2 wins\n";
-                break;
-            case tictactoe::COMPUTER:
-                COLOR(BLUE, WHITE);
-                std::cout << "\nyou lose try again\n";
-                RESET();
-                break;
-            case tictactoe::EMPTY_SPACE:
-                std::cout << "\nAn amazing game results in draw\n";
-                break;
-            default:
-                std::cout << "error";
-                break;
+                {
+                    COLOR(CYAN, BLACK);
+                    std::cout << "\nyou win!\n";
+                    RESET();
+                }
             }
-            std::cout << "Want to play more (y)........\n";
+            else
+            {
+                if (mark == PLAYER_1)
+                {
+                    COLOR(CYAN, BLACK);
+                    std::cout << player_1 << " wins!!!!!!!!!\n";
+                    RESET();
+                }
+                else
+                {
+                    COLOR(MAGENTA, BLACK);
+                    std::cout << player_2 << " wins!!!!!!!!!!\n";
+                    RESET();
+                }
+            }
+
+            std::cout << "Want to play more (y/n)........\n";
+            char temp;
             std::cin >> temp;
             return (temp == 'y') ? true : false;
         }
@@ -76,10 +113,10 @@ namespace tictactoe
         void intro()
         {
             COLOR(GREEN, BLACK);
-            std::cout << "welcome to my tictactoe game" << std::endl;
+            std::cout << "welcome to tictactoe game" << std::endl;
             std::cout << "..............................." << std::endl;
             RESET();
-            std::cout << "\n Rules ==>\n1. Enter number from 1 to 9 to enter your choice\n2. Enter 0 to quit in middle\n";
+            std::cout << "\n Rules ==>\n1. Enter number from 1 to 9 to enter your choice\n2. Enter e to quit in middle\n";
 
         }
         DIFFICULTY difficulty()
@@ -109,7 +146,20 @@ namespace tictactoe
                 return BEGINNER;
             }
         }
-
+        void get_names()
+        {
+            std::cout << "Default names are " << player_1 << " and " << player_2<<std::endl;
+            std::cout << "Type c if you want to change names enter\t";
+            char choice = getche();
+            if (choice == 'c')
+            {
+                std::cout << std::endl;
+                std::cout << "Enter Player 1 name : ";
+                std::cin >> player_1;
+                std::cout << "Enter Player 2 name : ";
+                std::cin >> player_2;
+            }
+        }
 		// print
 		void display_board(board m_board)
 		{

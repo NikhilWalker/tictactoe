@@ -1,6 +1,7 @@
 #ifndef LOGIC_H__
 #define LOGIC_H__ 1
 
+#include <thread>
 #include "gui.h"
 #include "header_files.h"
 #include "board.h"
@@ -49,13 +50,13 @@ namespace tictactoe
         {
             if ( turn == 0 )
             {
-                cur_board[GUI::get_move(cur_board)] = PLAYER_1;
+                cur_board[GUI::get_move(cur_board, mode, turn)] = PLAYER_1;
                 cur_move++;
                 turn = 1;
             }
             else if (mode == PLAYER_2)
             {
-                cur_board[GUI::get_move(cur_board)] = PLAYER_2;
+                cur_board[GUI::get_move(cur_board, mode, turn)] = PLAYER_2;
                 cur_move++;
                 turn = 0;
             }

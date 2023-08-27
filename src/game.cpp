@@ -12,6 +12,8 @@ int main()
 	tictactoe::MARK player = tictactoe::GUI::mode();
 	if (player == COMPUTER)
 		diff = tictactoe::GUI::difficulty();
+	else
+		GUI::get_names();
 
 	while(1)
 	{

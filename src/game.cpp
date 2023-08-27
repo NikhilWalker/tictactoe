@@ -1,6 +1,7 @@
 #include <iostream>
-#include "header_files.h"
-#include "logic.h"
+
+#include "engine\header_files.h"
+#include "engine\logic.h"
 
 using namespace tictactoe;
 

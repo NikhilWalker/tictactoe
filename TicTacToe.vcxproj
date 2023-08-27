@@ -19,14 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="board.h" />
-    <ClInclude Include="decision_tree.h" />
-    <ClInclude Include="gui.h" />
-    <ClInclude Include="header_files.h" />
-    <ClInclude Include="logic.h" />
+    <ClInclude Include="src\engine\board.h" />
+    <ClInclude Include="src\engine\decision_tree.h" />
+    <ClInclude Include="src\engine\gui.h" />
+    <ClInclude Include="src\engine\header_files.h" />
+    <ClInclude Include="src\engine\logic.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp" />
+    <ClCompile Include="src\game.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

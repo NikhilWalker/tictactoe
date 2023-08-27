@@ -28,11 +28,53 @@ std::cout << "\033[1;3" << WHITE << ";4" << BLACK << 'm';
 - Released under GPLv2.0 license.
 
 ## Usage
+Follow these steps to build and run the Tic-Tac-Toe project on different platforms using CMake:
 
-1. Compile the project using a C++ compiler.
-1. Run the compiled executable to start the game.
-1. Follow the on-screen prompts to play the game.
-1. When playing against a computer, choose your moves using the specified format.
+### Linux/macOS (GCC or Clang)
+
+1. Open a terminal.
+2. Navigate to the project root directory.
+3. Create a build directory: `mkdir build`
+4. Move into the build directory: `cd build`
+5. Generate build files using CMake: `cmake ..`
+6. Build the project: `make`
+7. Run the compiled executable: `./game`
+
+### Windows (Visual Studio)
+
+1. Open a command prompt or PowerShell.
+2. Navigate to the project root directory.
+3. Create a build directory: `mkdir build`
+4. Move into the build directory: `cd build`
+5. Generate Visual Studio project files using CMake: `cmake ..`
+6. Open the generated `.sln` file in Visual Studio.
+7. Build the project within Visual Studio.
+8. Run the compiled executable from the build output directory.
+
+### Windows (MinGW)
+
+1. Open a command prompt or PowerShell.
+2. Navigate to the project root directory.
+3. Create a build directory: `mkdir build`
+4. Move into the build directory: `cd build`
+5. Generate build files using CMake: `cmake .. -G "MinGW Makefiles"`
+6. Build the project: `mingw32-make`
+7. Run the compiled executable: `game.exe`
+
+### Windows (Clang via MSYS2)
+
+1. Open an MSYS2 terminal.
+2. Navigate to the project root directory.
+3. Create a build directory: `mkdir build`
+4. Move into the build directory: `cd build`
+5. Generate build files using CMake: `cmake .. -G "MSYS Makefiles"`
+6. Build the project: `make`
+7. Run the compiled executable: `./game.exe`
+
+
+Make sure to adjust the build commands and paths as necessary for your system. If you encounter any issues, feel free to reach out for assistance.
+
+For further information on CMake, refer to the official CMake documentation: https://cmake.org/documentation/
 
 ## License
 

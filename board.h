@@ -43,32 +43,6 @@ namespace tictactoe
 		{
 			return m_board[pos];
 		}
-
-// print
-		void display()
-		{
-			for (int i = 1; i < 12; i++)
-			{
-				for (int j = 1; j < 12; j++)
-				{
-					if (j == 4 || j == 8)
-						std::cout << "|";
-					else if (i == 4 || i == 8)
-						std::cout << "_";
-					else if ((i == 2 || i == 6 || i == 10) && (j == 2 || j == 6 || j == 10))
-					{
-						MARK mark = m_board[(3 * (i - 2) / 4) + ((j - 2) / 4)];
-						GUI::ICON icon = (mark == PLAYER_1) ? GUI::ICON_PLAYER_1 : ((mark == PLAYER_2) ? GUI::ICON_PLAYER_2 : GUI::ICON_EMPTY_SPACE);
-						//display icon
-						std::cout << icon;
-					}
-					else
-						std::cout << " ";
-				}
-				std::cout << std::endl;
-			}
-		}
-
 //check
 		MARK check()
 		{
@@ -77,12 +51,43 @@ namespace tictactoe
 				// if the place is empty we can skip the path
 				if (m_board[path[0]] == EMPTY_SPACE)
 					continue;
-				if (path[0] == path[1] && path[0] == path[2])
+				if (m_board[path[0]] == m_board[path[1]] && m_board[path[0]] == m_board[path[2]])
 					return m_board[path[0]];
 			}
 			return EMPTY_SPACE;
 		}
-
+		bool has_empty()
+		{
+			for (int i = 0; i < TOTAL_CELLS; i++)
+			{
+				if (m_board[i] == EMPTY_SPACE)
+					return true;
+			}
+			return false;
+		}
+		int find_different(board &other)
+		{
+			for (int i = 0; i < TOTAL_CELLS; i++)
+			{
+				if (m_board[i] == EMPTY_SPACE && other.m_board[i] == EMPTY_SPACE)
+					continue;
+				if (other.m_board[i] != m_board[i])
+					return i;
+			}
+			return -1;
+		}
+		std::vector<int> find_path()
+		{
+			for (auto path : PATHS)
+			{
+				// if the place is empty we can skip the path
+				if (m_board[path[0]] == EMPTY_SPACE)
+					continue;
+				if (m_board[path[0]] == m_board[path[1]] && m_board[path[0]] == m_board[path[2]])
+					return path;
+			}
+			return std::vector<int>();
+		}
 // reset
 		void reset()
 		{

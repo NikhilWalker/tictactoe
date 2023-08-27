@@ -20,14 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="board.h" />
-    <ClInclude Include="dicision_tree.h" />
+    <ClInclude Include="decision_tree.h" />
+    <ClInclude Include="gui.h" />
     <ClInclude Include="header_files.h" />
+    <ClInclude Include="logic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Icon.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -59,6 +59,5 @@ deps/
 node_modules/
 
 # Visual Studio platform-specific folders
-x64/
 Debug/
 Release/

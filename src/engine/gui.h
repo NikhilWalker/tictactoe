@@ -2,7 +2,6 @@
 #define GUI_H__ 1
 
 #include <iostream>
-#include <conio.h>
 #include "header_files.h"
 #include "board.h"
 
@@ -43,12 +42,12 @@ namespace tictactoe
             else
                 std::cout << player_2 << "'s move : ";
 
-			int move;
+			char move;
             while (1)
             {
                 do
                 {
-                    move = getche();
+                    std::cin >> move;
                     //see if valid
                     if (move <= '9' && move >= '1')
                     {
@@ -160,7 +159,8 @@ namespace tictactoe
         {
             std::cout << "Default names are " << player_1 << " and " << player_2<<std::endl;
             std::cout << "Type c if you want to change names enter\t";
-            char choice = getche();
+            char choice;
+            std::cin >> choice;
             if (choice == 'c')
             {
                 std::cout << std::endl;

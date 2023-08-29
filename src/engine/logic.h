@@ -39,7 +39,14 @@ namespace tictactoe
 
     MARK logic(DIFFICULTY diff, MARK mode)
     {
-        std::cout << "Starting game .............\n";
+        using namespace std::chrono_literals;
+        CLS;
+        std::cout << "Starting game";
+        std::this_thread::sleep_for(1s);
+        std::cout << ".";
+        std::this_thread::sleep_for(1s);
+        std::cout << ".";
+        std::this_thread::sleep_for(1s);
         int cur_move = 0;
         int turn = 0;
         board cur_board;
@@ -62,6 +69,8 @@ namespace tictactoe
             }
             else
             {
+                std::cout << "thinking...";
+                std::this_thread::sleep_for(2s);
                 cur_board[get_move(cur_board, diff)] = COMPUTER;
                 cur_move++;
                 turn = 0;

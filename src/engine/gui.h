@@ -6,9 +6,11 @@
 #include "header_files.h"
 #include "board.h"
 
-// #define CLS (std::cout<<"\033[2J")
-
+#ifdef _WIN32
 #define CLS system("cls");
+#else
+#define CLS system("clear");
+#endif // paltform
 
 #define LOCATE(r,c) (std::count<<"\033[" (r) <<';'<<(c)<<'H')
 
@@ -55,12 +57,20 @@ namespace tictactoe
                     }
                     else if (move == 'e')
                     {
-                        std::cout << "Bye";
+                        std::cout << "\nBye";
                         exit(0);
+                    }
+                    else
+                    {
+                        std::cout << "\b \b";
                     }
                 } while (1);
                 if (b[move] == EMPTY_SPACE)
                     break;
+                else
+                {
+                    std::cout << "\b \b";
+                }
             }
 			return move;
 		}

@@ -61,14 +61,14 @@ namespace tictactoe
                     }
                     else
                     {
-                        std::cout << "\b \b";
+                        std::cout << "invalid move enter number : ";
                     }
                 } while (1);
                 if (b[move] == EMPTY_SPACE)
                     break;
                 else
                 {
-                    std::cout << "\b \b";
+                    std::cout << "Enter valid number : ";
                 }
             }
 			return move;

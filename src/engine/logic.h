@@ -9,6 +9,13 @@
 
 namespace tictactoe
 {
+    /// <summary>
+    /// instanciate a decision tree of given difficulty
+    /// returns the max priority child
+    /// </summary>
+    /// <param name="cur_board">current board positions</param>
+    /// <param name="diff">difficulty</param>
+    /// <returns>returns the move of computer</returns>
     int get_move(board cur_board, DIFFICULTY diff)
     {
         engine::decision_tree tree(cur_board);
@@ -24,6 +31,12 @@ namespace tictactoe
         }
         return max->m_board.find_different(cur_board);
     }
+    /// <summary>
+    /// this function is used only if the difficulty is hacker
+    /// </summary>
+    /// <param name="m_board">board</param>
+    /// <param name="path">winning path</param>
+    /// <returns>returns the move at which the game will be draw or winning for computer</returns>
     int hacker(board m_board, std::vector<int> path)
     {
         for (auto pos : path)
@@ -36,7 +49,15 @@ namespace tictactoe
         }
         return path[0];
     }
-
+    /// <summary>
+    /// iterates untill the game finishes or any intreppt
+    /// get moves from computer and player
+    /// print the board
+    /// check the board
+    /// </summary>
+    /// <param name="diff">difficulty</param>
+    /// <param name="mode">mode of the game i.e. with computer or another player</param>
+    /// <returns>returns the mark of any player if wins else EMPTY_SPACE</returns>
     MARK logic(DIFFICULTY diff, MARK mode)
     {
         using namespace std::chrono_literals;

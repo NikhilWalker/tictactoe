@@ -1,14 +1,17 @@
 #ifndef DECISION_TREE_H__
 #define DECISION_TREE_H__ 1
 
+#include "header_files.h"
 #include "board.h"
-#include <vector>
 #include <cmath>
 
 namespace tictactoe
 {
 	namespace engine
 	{
+		/// <summary>
+		/// a decision tree object which calculates the moves of computer
+		/// </summary>
 		class decision_tree
 		{
 		public:
@@ -19,7 +22,13 @@ namespace tictactoe
         //func
 		// initialize the decision tree
 			decision_tree(board b) : m_board(b),m_priority(0) {}
-
+			/// <summary>
+			/// initialise the decision tree
+			/// priority is calculated as the depth^power
+			/// </summary>
+			/// <param name="turn">whose turn usually computer</param>
+			/// <param name="depth">depth corresponds to difficulty decreasing as we go down the tree</param>
+			/// <returns>returned value is the priority</returns>
 			int initialise(MARK turn, int depth)
 			{
 				if (m_board.check() != EMPTY_SPACE)

@@ -2,13 +2,15 @@
 #define BOARD_H__ 1
 
 #include "header_files.h"
-#include <vector>
-#include <iostream>
 
 namespace tictactoe
 {
 	const std::vector<std::vector<int>> PATHS({ {0,3,6},{1,4,7},{2,5,8},{0,1,2},{3,4,5},{6,7,8},{0,4,8},{2,4,6} });
 
+	/// <summary>
+	/// board for tictactoe game
+	/// has a 9 consecutive cells for storing mark
+	/// </summary>
 	class board
 	{
 	protected:
@@ -30,20 +32,17 @@ namespace tictactoe
 		}
 
 // get and set cell
-
-		void set_cell(int pos, MARK m)
-		{
-			m_board[pos] = m;
-		}
+		
 		MARK& operator[](int pos) noexcept
 		{
 			return m_board[pos];
 		}
-		MARK get_cell(int pos) const noexcept
-		{
-			return m_board[pos];
-		}
 //check
+
+		/// <summary>
+		/// check the board
+		/// </summary>
+		/// <returns>return EMPTY_SPCE if none wins otherwise returns the mark of whoever wins</returns>
 		MARK check()
 		{
 			for (auto path : PATHS)
@@ -56,6 +55,10 @@ namespace tictactoe
 			}
 			return EMPTY_SPACE;
 		}
+		/// <summary>
+		/// check for empty cells
+		/// </summary>
+		/// <returns>return true if any one cell is empty else return false</returns>
 		bool has_empty()
 		{
 			for (int i = 0; i < TOTAL_CELLS; i++)
@@ -65,6 +68,11 @@ namespace tictactoe
 			}
 			return false;
 		}
+		/// <summary>
+		/// compare two boards
+		/// </summary>
+		/// <param name="other"></param>
+		/// <returns>returns a different move in two boards if two boards are same returns -1</returns>
 		int find_different(board &other)
 		{
 			for (int i = 0; i < TOTAL_CELLS; i++)
@@ -76,6 +84,10 @@ namespace tictactoe
 			}
 			return -1;
 		}
+		/// <summary>
+		/// search the path for which any player wins
+		/// </summary>
+		/// <returns>returns 3 indices else if nobody wins return empty vector</returns>
 		std::vector<int> find_path()
 		{
 			for (auto path : PATHS)

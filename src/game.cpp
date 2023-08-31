@@ -17,7 +17,7 @@ int main()
 
 	while(1)
 	{
-		tictactoe::MARK mark = tictactoe::logic(diff, player);
+		tictactoe::MARK mark = tictactoe::logic(diff, player); // mark stores the player who wins or looses or empty pos returned by logic function
 		if (!tictactoe::GUI::outro(mark, player))
 			break;
 	}

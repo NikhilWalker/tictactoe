@@ -84,10 +84,16 @@ namespace tictactoe
                     std::cout << "\nyou lose\n";
                     RESET();
                 }
-                else
+                else if(mark == PLAYER_1)
                 {
                     COLOR(CYAN, BLACK);
                     std::cout << "\nyou win!\n";
+                    RESET();
+                }
+                else
+                {
+                    COLOR(CYAN, BLACK);
+                    std::cout << "\nAmazing game!\n";
                     RESET();
                 }
             }
@@ -99,10 +105,16 @@ namespace tictactoe
                     std::cout << player_1 << " wins!!!!!!!!!\n";
                     RESET();
                 }
-                else
+                else if(mark == PLAYER_2)
                 {
                     COLOR(MAGENTA, BLACK);
                     std::cout << player_2 << " wins!!!!!!!!!!\n";
+                    RESET();
+                }
+                else
+                {
+                    COLOR(MAGENTA, BLACK);
+                    std::cout << "An Amazing game results in draw";
                     RESET();
                 }
             }

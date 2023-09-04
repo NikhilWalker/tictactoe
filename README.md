@@ -14,7 +14,7 @@ standard 17 or above
 ### console
 The project currently executes terminal or console emulators.
 Most modern terminals support ANSI escape codes, but there might be some variations in support depending on the terminal software.
-GUI game is in work. This line of code may cause some problem in old console software.
+This line of code may cause some problem in old console software.
 
 <code> std::cout << "\033[1;3" << WHITE << ";4" << BLACK << 'm'; </code>
 
